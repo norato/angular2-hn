@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { HackernewsApiService } from '../hackernews-api.service';
 
@@ -14,7 +15,8 @@ export class ItemCommentsComponent implements OnInit {
 
   constructor(
     private _hackerNewsAPIService: HackernewsApiService,
-    private route: ActivatedRoute 
+    private route: ActivatedRoute,
+    private _location: Location
   ) { }
 
   ngOnInit() {
@@ -25,6 +27,10 @@ export class ItemCommentsComponent implements OnInit {
         error => console.log('Could not load item' + itemID)
       )
     })
+  }
+
+  goBack(){
+    this._location.back();
   }
 
 }
