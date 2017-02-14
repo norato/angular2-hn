@@ -12,7 +12,7 @@ export class StoriesComponent implements OnInit {
   constructor(private _hackernewsApiService: HackernewsApiService) {}
 
   ngOnInit() {
-    this._hackernewsApiService.fetchStories()
+    this._hackernewsApiService.fetchStories('news', 1)
                   .subscribe(
                     items => this.items = items,
                     error => console.log('Error fetching stories')
